@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Odliczanie do nieskończoności - WZ. Strona odliczająca liczby w nieskończoność, tworzona przez WZ.">
+    <meta name="keywords" content="odliczanie, nieskończoność, WZ, liczby">
+    <meta name="author" content="WZ">
+    <title>Odliczanie do nieskończoności – WZ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            font-size: 48px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 id="licznik">1</h1>
+
+    <script>
+        // Sprawdzamy, czy w LocalStorage jest już zapisana liczba
+        let liczba = localStorage.getItem("licznik") ? parseInt(localStorage.getItem("licznik")) : 1;
+        const licznikElement = document.getElementById("licznik");
+
+        // Wyświetlamy początkową wartość licznika
+        licznikElement.textContent = liczba;
+
+        // Funkcja, która co sekundę zwiększa licznik
+        setInterval(() => {
+            liczba++;
+            licznikElement.textContent = liczba;
+            // Zapisujemy aktualną wartość do LocalStorage
+            localStorage.setItem("licznik", liczba);
+        }, 1000);
+    </script>
+
+</body>
+</html>
+
